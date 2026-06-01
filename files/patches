@@ -49,6 +49,9 @@ shopt -q expand_aliases||{ unalias -a;shopt -s expand_aliases;};builtin alias +=
     # (internal container traffic; not exposed externally)
     - "\$config['smtp_host']    = 'localhost:25';"
     - "\$config['smtp_server']  = 'localhost:25';"
+    - "\$config['smtp_user']    = '';"
+    - "\$config['smtp_pass']    = '';"
+    - "\$config['smtp_auth_type'] = null;"
     - "\$config['managesieve_port'] = 4190;"
     - "\$config['managesieve_host'] = gethostname();"
     - "\$config['managesieve_usetls'] = true;"
