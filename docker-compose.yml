@@ -1,0 +1,17 @@
+version: "2.3"
+services:
+  poste:
+    image: dirtsimple/poste.io
+    restart: always
+    network_mode: host
+
+    # serve everything on `mail.example.com`, which will be the default HELO as well:
+    hostname: mail.nahon.ru
+
+    volumes:
+      - ./test-data/:/data
+      - /etc/localtime:/etc/localtime:ro
+
+    # ==== Optional settings below: you don't need any environment vars by default ====
+    environment:
+      - "LISTEN_ON=127.0.0.1 65.109.22.178 100.69.198.156"

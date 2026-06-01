@@ -1,4 +1,4 @@
-ARG UPSTREAM=2.3.10
+ARG UPSTREAM=2.5.12
 FROM analogic/poste.io:$UPSTREAM
 RUN sed -ie s/deb.debian.org/archive.debian.org/ /etc/apt/sources.list && rm /etc/apt/sources.list.d/rspamd.list
 RUN apt-get update && apt-get install less  # 'less' is Useful for debugging
