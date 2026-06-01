@@ -45,7 +45,10 @@ shopt -q expand_aliases||{ unalias -a;shopt -s expand_aliases;};builtin alias +=
   # Make webmail connect to the public hostname, instead of localhost
   + append ""; {{
     - "\$config['default_host'] = 'ssl://' . gethostname();"
-    - "\$config['smtp_server']  = 'tls://' . gethostname() . ':587';"
+    # Roundcube SMTP auth is most reliable against local Postfix on 25
+    # (internal container traffic; not exposed externally)
+    - "\$config['smtp_host']    = 'localhost:25';"
+    - "\$config['smtp_server']  = 'localhost:25';"
     - "\$config['managesieve_port'] = 4190;"
     - "\$config['managesieve_host'] = gethostname();"
     - "\$config['managesieve_usetls'] = true;"
